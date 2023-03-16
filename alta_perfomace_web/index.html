@@ -1,0 +1,17 @@
+<html>
+    <div id="app">
+        <h1>Primeiro programa: {{Number(n1) + Number(n2)}}</h1>
+        <input type="text" v-model="n1">
+        <input type="text" v-model="n2">
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script type="text/javascript">
+        const x = new Vue({
+            el: '#app',
+            data: {
+                n1: "escreva algo",
+                n2: "escreva algo"
+            }
+        })
+    </script>
+</html>
