@@ -1,0 +1,12 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
+*{
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+body {
+  background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://img.freepik.com/fotos-gratis/garcom-feliz-servindo-comida-para-um-grupo-de-amigos-alegres-em-um-pub_637285-12525.jpg?w=900&t=st=1684328478~exp=1684329078~hmac=6a02e53d6af6c1c8c595d889e065410a0f13664f5ba9e30f0b5a0901c4c2d483');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  }

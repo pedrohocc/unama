@@ -1,0 +1,9 @@
+a {
+    transition: 1s;
+}
+
+a:hover {
+    color: red;
+    text-decoration: underline;
+    transition: 1s;
+}
