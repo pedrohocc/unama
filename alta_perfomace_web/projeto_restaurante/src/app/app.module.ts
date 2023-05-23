@@ -9,6 +9,8 @@ import { DeliveryComponent } from './components/delivery/delivery.component';
 import { CardapioComponent } from './components/cardapio/cardapio.component';
 import { PrincipalComponent } from './components/principal/principal.component'
 import { FormsModule } from '@angular/forms';
+import {FontAwesomeModule} from '@fortawesome/angular-fontawesome'
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { FormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    FontAwesomeModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

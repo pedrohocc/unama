@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms'
+import { CadastroService } from './cadastro.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cadastro-cliente',
@@ -7,13 +9,23 @@ import { NgForm } from '@angular/forms'
   styleUrls: ['./cadastro-cliente.component.css']
 })
 
+
+
 export class CadastroClienteComponent {
+  constructor(
+    private router: Router,
+    private service: CadastroService) {
+    
+  }
+
   onSubmit(form:NgForm) {
     if(form.valid) {
-      const nome: String = form.value['nome']
-      const rua: String = form.value['rua']
-      const numero: String = form.value['numero']
-      alert(`Nome: ${nome}\nRua: ${rua}\nNumero: ${numero}`)
+      const nomeUser: string = form.value['nome']
+      const ruaUser: string = form.value['rua']
+      const numeroUser: string = form.value['numero']
+      this.service.cadastrar(nomeUser, ruaUser, numeroUser).subscribe(() => {
+        this.router.navigate([''])
+      })
     } else {
       alert('Preencha todos os campos')
     }
