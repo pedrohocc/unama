@@ -1,12 +1,11 @@
-<div class=" d-flex flex-column justify-content-center align-items-center " id="main">
-    <h1 class="text-center p-5 text-danger">PrimeFood</h1>
-    <div id="infos" class="d-flex flex-column justify-content-between align-items-center ">
-      <i class="fa-solid fa-user"></i>
-      <input class="rounded" type="text" placeholder="nome:">
-      <input class="rounded" type="email" placeholder="insira seu E-mail:">
-      <input class="rounded" type="password" placeholder="insira sua senha:">
-      <input class="rounded" type="password" placeholder="confirmar senha:">  
-      <input  class="rounded" type="text" placeholder="endereço:">
-      <button class="rounded text-center p-1 m-5 ">Cadastrar-se</button>
+<div class=" d-flex flex-column justify-content-center align-items-center ">
+    <h1 class="text-center p-5 text-danger">Cadastro de Cliente</h1>
+    <div id="infos" class="">
+      <form #meuForm="ngForm" (ngSubmit)="onSubmit(meuForm)" class="d-flex flex-column justify-content-between align-items-center" action="">
+        <input ngModel name="nome" #nome="ngModel" class="rounded" type="text" placeholder="Nome" required>
+        <input ngModel name="rua" #rua="ngModel" class="rounded" type="text" placeholder="Rua" required>
+        <input ngModel name="numero" #numero="ngModel" class="rounded" type="text" placeholder="Numero" required>
+        <button  class="rounded text-center p-1 m-5 "><i class="fa-solid fa-user-plus"></i></button>
+      </form>
     </div>
   </div>

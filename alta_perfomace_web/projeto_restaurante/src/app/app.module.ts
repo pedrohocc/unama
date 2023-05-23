@@ -8,6 +8,7 @@ import { ReservaComponent } from './components/reserva/reserva.component';
 import { DeliveryComponent } from './components/delivery/delivery.component';
 import { CardapioComponent } from './components/cardapio/cardapio.component';
 import { PrincipalComponent } from './components/principal/principal.component'
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -17,11 +18,12 @@ import { PrincipalComponent } from './components/principal/principal.component'
     ReservaComponent,
     DeliveryComponent,
     CardapioComponent,
-    PrincipalComponent
+    PrincipalComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

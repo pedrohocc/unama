@@ -9,13 +9,13 @@
     border-bottom: 2px solid white;
 }
 
+h1 {
+    font-size: 5em;
+    font-weight: bold;
+ }
+
 #card:last-child {
     border-bottom: 0px solid white;
-}
-
-#card > h1 {
-   font-size: 5em;
-   font-weight: bold;
 }
 #card-texto {
     width: 80%;
