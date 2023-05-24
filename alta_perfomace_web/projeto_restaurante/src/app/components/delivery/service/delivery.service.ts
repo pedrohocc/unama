@@ -5,11 +5,20 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class DeliveryService {
-  private readonly API = 'https://picturesque-splashy-toucan.glitch.me/pedidos'
-
   constructor(private http: HttpClient) { }
 
-  getAll() {
-    return this.http.get<[]>(this.API);
+  getAllDelivery() {
+    return this.http.get<[]>('https://picturesque-splashy-toucan.glitch.me/delivery');
+  }
+
+  getAllClientes() {
+    return this.http.get<[]>('https://picturesque-splashy-toucan.glitch.me/clientes');
+  }
+
+  createPedido(idCliente: string, item: string) {
+    return this.http.post('https://picturesque-splashy-toucan.glitch.me/pedido', {
+      idCliente, 
+      item
+    });
   }
 }
