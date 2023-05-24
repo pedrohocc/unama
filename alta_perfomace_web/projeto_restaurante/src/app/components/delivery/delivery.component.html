@@ -1,1 +1,28 @@
-<p>delivery works!</p>
+<form class="d-flex flex-column justify-content-center align-items-center" action="">
+  <label class="text-white" for="cliente">Cliente:</label>
+  <select style="width: 100px;" name="cliente">
+    <option *ngFor="let item of listaDelivery">{{item['cliente_idcliente']}}</option>
+  </select>
+  <label class="text-white" for="cliente">Item:</label>
+  <select style="width: 100px;" name="cliente">
+    <option value="Hamburguer">Hamburguer</option>
+    <option value="Pizza">Pizza</option>
+    <option value="Suco">Suco</option>
+    <option value="Refrigerante">Refri</option>
+  </select>
+  <button>Pedir</button>
+</form>
+<div class="container d-flex justify-content-center">
+    <table class="m-5">
+        <tr>
+          <th>ID Pedido</th>
+          <th>ID Cliente</th>
+          <th>Pedido</th>
+        </tr>
+        <tr *ngFor="let item of listaDelivery">
+          <td>{{item['idpedido']}}</td>
+          <td>{{item['cliente_idcliente']}}</td>
+          <td>{{item['item']}}</td>
+        </tr>
+      </table>
+</div>
