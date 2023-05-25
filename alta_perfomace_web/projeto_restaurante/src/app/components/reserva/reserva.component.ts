@@ -1,5 +1,8 @@
+import { DatePipe, Time } from '@angular/common';
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { ReservaService } from './services/reserva.service';
+import { CadastroService } from '../cadastro-cliente/cadastro.service';
 
 @Component({
   selector: 'app-reserva',
@@ -7,20 +10,38 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./reserva.component.css']
 })
 export class ReservaComponent {
+  listaReserva: [] = []
+  listaClientes: [] = []
+  constructor(private serviceCliente: CadastroService,
+    private service: ReservaService) {}
+
+  ngOnInit() {
+    this.serviceCliente.getAll().subscribe((element) => {
+      this.listaClientes = element
+    })
+
+    this.service.getAll().subscribe((element) => {
+      this.listaReserva = element
+    })
+  }
+
   onSubmit(form: NgForm) {
     if(form.valid) {
-      let dataHoje: Date = new Date();
-      const dataUser: string =  form.value['data']
-      const horaUser: string =  form.value['hora']
+      const dataHoje: Date = new Date();
+      const inputIdCliente: number =  form.value['cliente']
+      const inputDataUser: string =  form.value['data']
+      const dataUser: Date = new Date(inputDataUser)
 
-      const datasFormatadas: [string, string] = this.formatarDatas(dataHoje, dataUser)
-
-      const dataValidada = this.validarData(datasFormatadas)
-      const horaValidada = this.validarHora(horaUser)
-      const isDiaUtil = this.isDiaUtil(dataUser)
-
-      if(dataValidada && horaValidada && isDiaUtil) {
-        alert('correto')
+      const dataValidada = this.validarData(dataHoje, dataUser)
+      const horaValidada = this.validarHora(dataHoje, dataUser)
+      const isDiaFuncionamento = this.validarDiaSemana(dataUser)
+      
+      
+      if(dataValidada && horaValidada && isDiaFuncionamento) {
+        this.service.createReserva(inputIdCliente, dataUser).subscribe(() => {
+          alert('Reservado!')
+          location.reload()
+        })
       } else {
         alert('data ou horario inválido')
       }
@@ -30,25 +51,25 @@ export class ReservaComponent {
     }
   }
 
-  formatarDatas(dataHoje: Date, dataUser: String): [string, string] {
-    const dataHojeFormatada: string = dataHoje.toLocaleDateString('pt-BR').split('/').join('-');
-    const dataUserFormatada: string = dataUser.split('-').reverse().join('-')
-    return [dataHojeFormatada, dataUserFormatada]
-  }
-
-  validarData(dataHojeAndDataUser: [string, string]) {
-    const result = dataHojeAndDataUser[1] >= dataHojeAndDataUser[0]
+  validarData(dataHoje: Date, dataUser: Date) {
+    const result: boolean = dataUser >= dataHoje
     return result
   }
 
-  validarHora(horaUser: string): boolean {
-    const horaValidator: boolean = horaUser >= '12:00' && horaUser < '23:00'
-    return horaValidator
+  validarHora(horaAtual: Date, horaUser: Date): boolean {
+    let horaValidator: boolean = false
+
+    if(horaUser.getHours() >= horaAtual.getHours()) {
+      horaValidator = horaUser.getHours() >= 12 && horaUser.getHours() < 23
+      return horaValidator
+    } else {
+      return false
+    }
+    
   }
 
-  isDiaUtil(data: string) {
-    const dataValidar: Date = new Date(data)
-    const result: boolean = (dataValidar.getDay() + 1) != 7
+  validarDiaSemana(data: Date) {
+    const result: boolean = data.getDay() != 0
     return result 
   }
 }

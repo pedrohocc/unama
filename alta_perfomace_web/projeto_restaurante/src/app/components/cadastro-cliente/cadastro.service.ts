@@ -8,6 +8,10 @@ import { Observable } from 'rxjs';
 export class CadastroService {
   private readonly API = 'https://picturesque-splashy-toucan.glitch.me/cadastro'
   constructor(private http: HttpClient) { }
+
+  getAll() {
+    return this.http.get<[]>('https://picturesque-splashy-toucan.glitch.me/clientes');
+  }
   
   cadastrar(nome: string , rua: string, numero:string):Observable<any> {
     return this.http.post(this.API, {nome,

@@ -5,19 +5,16 @@
       <small class="text-white m-2">Horario de funcionamento: 12h - 23h</small>
       <form #meuForm="ngForm" (ngSubmit)="onSubmit(meuForm)" class="d-flex flex-column justify-content-center align-items-center" action="">
         <div class="d-flex align-items-center w-100 flex-wrap justify-content-start">
-          <div class="m-4">
+          <div class="m-3">
             <label class="text-white me-3" for="cliente">Cliente:</label>
-            <select style="width: 100px;" name="cliente" >
+            <select ngModel #cliente="ngModel" style="width: 100px;" name="cliente" required>
               <option value="">Selecione</option> 
+              <option *ngFor="let item of listaClientes" [value]="item['idcliente']">{{item['idcliente']}}: {{item['nome']}}</option>
             </select>
           </div>
           <div class="m-3 d-flex justify-content-center align-items-center">
             <label for="data" class="text-white me-3">Data da Reserva:</label>
-            <input ngModel #data="ngModel" name="data" type="date" required>
-          </div>
-          <div class="m-3 d-flex justify-content-center align-items-center">
-            <label for="hora" class="text-white me-3">Hora da Reserva:</label>
-            <input ngModel #hora="ngModel" name="hora" type="time" required>
+            <input ngModel #data="ngModel" name="data" type="datetime-local" required>
           </div>
         </div>
         <div>
@@ -26,25 +23,21 @@
       </form>
   </div>
   <div id="tabela" class="container d-flex justify-content-center align-items-center flex-column mt-5 mb-5">
-    <h1 class="text-center text-white m-2">Registro de Pedidos</h1>
+    <h1 class="text-center text-white m-2">Registro de Reservas</h1>
     <div class="table-responsive ">
       <table class="table table-primary table-striped">
         <thead>
           <tr>
             <th scope="col">ID Pedido</th>
             <th scope="col">ID Cliente</th>
-            <th scope="col">Rua</th>
-            <th scope="col">Número</th>
-            <th scope="col">Item</th>
+            <th scope="col">Data Reservada</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>s</td>
-            <td>s</td>
-            <td>s</td>
-            <td>s</td>
-            <td>s</td>
+          <tr *ngFor="let item of listaReserva">
+            <td>{{item['idreserva']}}</td>
+            <td>{{item['idcliente']}}</td>
+            <td>{{item['data_reserva']}}</td>
           </tr>
         </tbody>
       </table>

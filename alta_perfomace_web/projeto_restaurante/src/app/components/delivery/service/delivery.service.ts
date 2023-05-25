@@ -7,12 +7,8 @@ import { Injectable } from '@angular/core';
 export class DeliveryService {
   constructor(private http: HttpClient) { }
 
-  getAllDelivery() {
+  getAll() {
     return this.http.get<[]>('https://picturesque-splashy-toucan.glitch.me/delivery');
-  }
-
-  getAllClientes() {
-    return this.http.get<[]>('https://picturesque-splashy-toucan.glitch.me/clientes');
   }
 
   createPedido(idCliente: string, item: string) {

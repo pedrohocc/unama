@@ -24,10 +24,11 @@ export class CadastroClienteComponent {
       const ruaUser: string = form.value['rua']
       const numeroUser: string = form.value['numero']
       this.service.cadastrar(nomeUser, ruaUser, numeroUser).subscribe(() => {
-        this.router.navigate([''])
+        alert('Cliente cadastrado com SUCESSO!');
+        location.reload();
       })
     } else {
-      alert('Preencha todos os campos')
+      alert('Preencha todos os campos');
     }
     
   }

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { DeliveryService } from './service/delivery.service';
 import { NgForm } from '@angular/forms';
+import { CadastroService } from '../cadastro-cliente/cadastro.service';
 
 @Component({
   selector: 'app-delivery',
@@ -10,7 +11,8 @@ import { NgForm } from '@angular/forms';
 export class DeliveryComponent {
   listaDelivery: [] = []
   listaCliente: [] = []
-  constructor(private service:DeliveryService) {}
+  constructor(private serviceCliente: CadastroService,
+    private service:DeliveryService) {}
 
   onSubmit(form: NgForm) {
     if(form.valid) {
@@ -26,12 +28,11 @@ export class DeliveryComponent {
   }
   
   ngOnInit() {
-    this.service.getAllDelivery().subscribe((element) => {
-      console.log(element)
+    this.service.getAll().subscribe((element) => {
       this.listaDelivery = element;
     })
 
-    this.service.getAllClientes().subscribe((element) => {
+    this.serviceCliente.getAll().subscribe((element) => {
       console.log(element)
       this.listaCliente = element;
     })
