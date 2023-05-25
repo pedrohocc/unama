@@ -1,50 +1,56 @@
-<div class="d-flex justify-content-center">
-  <div id="formulario" class="mt-5 flex-column d-flex justify-content-center align-items-center">
-    <h1 class="text-center text-white m-2">Pedido</h1>
-    <form #meuForm="ngForm" (ngSubmit)="onSubmit(meuForm)" class="d-flex flex-column justify-content-center align-items-center" action="">
-      <div class="d-flex align-items-center w-100">
-        <div class="selects">
-          <label class="text-white me-3" for="cliente">Cliente:</label>
-          <select ngModel #cliente="ngModel" style="width: 100px;" name="cliente" required>
-            <option value="">Selecione</option>
-            <option *ngFor="let item of listaCliente" [value]="item['idcliente']" >{{item['idcliente']}}:
-              {{item['nome']}}
-            </option>
-          </select>
+<div class="container d-flex flex-column justify-content-center align-items-center">
+    <div id="formulario" class="mt-5 flex-column d-flex justify-content-center align-items-center">
+      <h1 class="text-center text-white m-2">Pedido</h1>
+      <form #meuForm="ngForm" (ngSubmit)="onSubmit(meuForm)" class="d-flex flex-column justify-content-center align-items-center" action="">
+        <div class="d-flex align-items-center w-100 flex-wrap justify-content-center">
+          <div class="selects">
+            <label class="text-white me-3" for="cliente">Cliente:</label>
+            <select ngModel #cliente="ngModel" style="width: 100px;" name="cliente" required>
+              <option value="">Selecione</option>
+              <option *ngFor="let item of listaCliente" [value]="item['idcliente']" >{{item['idcliente']}}:
+                {{item['nome']}}
+              </option>
+            </select>
+          </div>
+          <div class="selects">
+            <label class="text-white me-3" for="item">Item:</label>
+            <select ngModel #item="ngModel" style="width: 100px;" name="item" required>
+              <option value="">Selecione</option>
+              <option value="Hamburguer">Hamburguer</option>
+              <option value="Pizza">Pizza</option>
+              <option value="Suco">Suco</option>
+              <option value="Refrigerante">Refri</option>
+            </select>
+          </div>
         </div>
-        <div class="selects">
-          <label class="text-white me-3" for="item">Item:</label>
-          <select ngModel #item="ngModel" style="width: 100px;" name="item" required>
-            <option value="">Selecione</option>
-            <option value="Hamburguer">Hamburguer</option>
-            <option value="Pizza">Pizza</option>
-            <option value="Suco">Suco</option>
-            <option value="Refrigerante">Refri</option>
-          </select>
+        <div>
+          <button class="m-3"><i class="fa-sharp fa-solid fa-check fs-4"></i></button>
         </div>
-      </div>
-      <div>
-        <button><i class="fa-sharp fa-solid fa-check fs-4"></i></button>
-      </div>
-    </form>
+      </form>
   </div>
-</div>
-<div id="tabela" class="container d-flex justify-content-center align-items-center flex-column mt-5 mb-5">
-  <h1 class="text-center text-white m-2">Registro de Pedidos</h1>
-    <table class="mt-2 mb-5">
-        <tr>
-          <th>Pedido</th>
-          <th>Cliente</th>
-          <th>Rua</th>
-          <th>Numero</th>
-          <th>Item</th>
-        </tr>
-        <tr *ngFor="let item of listaDelivery">
-          <td>{{item['pedido']}}</td>
-          <td>{{item['cliente']}}</td>
-          <td>{{item['rua']}}</td>
-          <td>{{item['numero']}}</td>
-          <td>{{item['item']}}</td>
-        </tr>
+  <div id="tabela" class="container d-flex justify-content-center align-items-center flex-column mt-5 mb-5">
+    <h1 class="text-center text-white m-2">Registro de Pedidos</h1>
+    <div class="table-responsive ">
+      <table class="table table-primary table-striped">
+        <thead>
+          <tr>
+            <th scope="col">ID Pedido</th>
+            <th scope="col">ID Cliente</th>
+            <th scope="col">Rua</th>
+            <th scope="col">Número</th>
+            <th scope="col">Item</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of listaDelivery">
+            <td>{{item['pedido']}}</td>
+            <td>{{item['cliente']}}</td>
+            <td>{{item['rua']}}</td>
+            <td>{{item['numero']}}</td>
+            <td>{{item['item']}}</td>
+          </tr>
+        </tbody>
       </table>
+    </div>
+  </div>
 </div>

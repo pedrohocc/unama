@@ -17,6 +17,7 @@ export class DeliveryComponent {
       const idCliente: string = form.value['cliente']
       const item: string = form.value['item']
       this.service.createPedido(idCliente, item).subscribe(() => {
+        alert('Pedido realizado com SUCESSO!')
         window.location.reload();
       })
     } else {
