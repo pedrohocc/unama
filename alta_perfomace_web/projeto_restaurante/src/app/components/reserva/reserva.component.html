@@ -4,18 +4,18 @@
       <small class="text-white m-2">Dias de funcionamento: Seg - Sab</small>
       <small class="text-white m-2">Horario de funcionamento: 12h - 23h</small>
       <form #meuForm="ngForm" (ngSubmit)="onSubmit(meuForm)" class="d-flex flex-column justify-content-center align-items-center" action="">
-        <div class="d-flex align-items-center w-100 flex-wrap justify-content-center">
+        <div class="d-flex align-items-center w-100 flex-wrap justify-content-start">
           <div class="m-4">
             <label class="text-white me-3" for="cliente">Cliente:</label>
             <select style="width: 100px;" name="cliente" >
               <option value="">Selecione</option> 
             </select>
           </div>
-          <div class="m-4">
+          <div class="m-3 d-flex justify-content-center align-items-center">
             <label for="data" class="text-white me-3">Data da Reserva:</label>
             <input ngModel #data="ngModel" name="data" type="date" required>
           </div>
-          <div class="m-4">
+          <div class="m-3 d-flex justify-content-center align-items-center">
             <label for="hora" class="text-white me-3">Hora da Reserva:</label>
             <input ngModel #hora="ngModel" name="hora" type="time" required>
           </div>
