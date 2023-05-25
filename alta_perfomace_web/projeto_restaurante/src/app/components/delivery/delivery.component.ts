@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { DeliveryService } from './service/delivery.service';
 import { NgForm } from '@angular/forms';
 import { CadastroService } from '../cadastro-cliente/cadastro.service';
+import { Route, Router } from '@angular/router';
 
 @Component({
   selector: 'app-delivery',
@@ -11,8 +12,10 @@ import { CadastroService } from '../cadastro-cliente/cadastro.service';
 export class DeliveryComponent {
   listaDelivery: [] = []
   listaCliente: [] = []
-  constructor(private serviceCliente: CadastroService,
-    private service:DeliveryService) {}
+  constructor(
+    private serviceCliente: CadastroService,
+    private service:DeliveryService
+    ) {}
 
   onSubmit(form: NgForm) {
     if(form.valid) {
@@ -20,7 +23,7 @@ export class DeliveryComponent {
       const item: string = form.value['item']
       this.service.createPedido(idCliente, item).subscribe(() => {
         alert('Pedido realizado com SUCESSO!')
-        window.location.reload();
+        location.reload()
       })
     } else {
       alert('Selecione os valores')

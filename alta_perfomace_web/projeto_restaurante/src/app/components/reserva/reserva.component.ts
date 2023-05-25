@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ReservaService } from './services/reserva.service';
 import { CadastroService } from '../cadastro-cliente/cadastro.service';
+import { Route, Router } from '@angular/router';
 
 @Component({
   selector: 'app-reserva',
@@ -12,8 +13,10 @@ import { CadastroService } from '../cadastro-cliente/cadastro.service';
 export class ReservaComponent {
   listaReserva: [] = []
   listaClientes: [] = []
-  constructor(private serviceCliente: CadastroService,
-    private service: ReservaService) {}
+  constructor(
+    private serviceCliente: CadastroService,
+    private service: ReservaService
+    ) {}
 
   ngOnInit() {
     this.serviceCliente.getAll().subscribe((element) => {

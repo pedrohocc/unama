@@ -15,7 +15,7 @@ export class ReservaService {
   }
 
   createReserva(idCliente: number, data_reserva: Date) {
-    const data = moment(data_reserva, 'YYYY-MM-DD').format('YYYY-MM-DD')
+    const data = moment(data_reserva, 'YYYY-MM-DD HH:MM:SS').format('YYYY-MM-DD HH:mm:ss')
     return this.http.post('https://picturesque-splashy-toucan.glitch.me/reserva', {idCliente, data});
   }
 
