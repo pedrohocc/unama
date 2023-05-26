@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef } from '@angular/core';
+import { elementAt } from 'rxjs';
 
 @Component({
   selector: 'app-principal',
@@ -6,5 +7,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./principal.component.css']
 })
 export class PrincipalComponent {
+
+  constructor(private _elementRef: ElementRef) { }
+
+  ngOnInit() {
+    const element = this._elementRef.nativeElement
+    
+    element.addEventListener('touchstart', { passive: true });
+    element.addEventListener('scroll', { passive: true });
+  }
 
 }

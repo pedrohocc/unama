@@ -6,31 +6,25 @@
     height: auto;
     color: white;
     text-align: center;
-    border-bottom: 2px solid white;
 }
 
 h1 {
-    font-size: 5em;
+    font-size: 4em;
     font-weight: bold;
  }
 
-#card:last-child {
-    border-bottom: 0px solid white;
-}
 #card-texto {
     width: 80%;
     font-size: 1.7em;
 }
-.seta {
-    background-color: rgba(0, 0, 0, 0.5);
-    padding: 0.7em;
-    border-radius: 20px;
-}
 
-.carrousel {
-    min-height: 80vh;
-    height: 90vh;
+@media (max-width: 900px) {
+  iframe {
+    display: none;
+  }
 }
-
-.animar-seta{animation:animar-seta .5s ease-in-out infinite both}
-@keyframes animar-seta{0%{transform:scale(1)}50%{transform:scale(1.1)}100%{transform:scale(1)}}
+@media (min-width: 900px) {
+  #img-local {
+    display: none;
+  }
+}
