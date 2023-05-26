@@ -23,8 +23,13 @@ h1 {
 }
 .seta {
     background-color: rgba(0, 0, 0, 0.5);
-    padding: 0.5em;
+    padding: 0.7em;
     border-radius: 20px;
+}
+
+.carrousel {
+    min-height: 80vh;
+    height: 90vh;
 }
 
 .animar-seta{animation:animar-seta .5s ease-in-out infinite both}
