@@ -10,8 +10,8 @@ import { Route, Router } from '@angular/router';
   styleUrls: ['./delivery.component.css']
 })
 export class DeliveryComponent {
-  listaDelivery: [] = []
-  listaCliente: [] = []
+  listaDelivery: [] = [];
+  listaCliente: [] = [];
   constructor(
     private serviceCliente: CadastroService,
     private service:DeliveryService
@@ -20,11 +20,35 @@ export class DeliveryComponent {
   onSubmit(form: NgForm) {
     if(form.valid) {
       const idCliente: string = form.value['cliente']
-      const item: string = form.value['item']
-      this.service.createPedido(idCliente, item).subscribe(() => {
-        alert('Pedido realizado com SUCESSO!')
-        location.reload()
-      })
+      const quantidadePizza: number = form.value['pizza'] 
+      const quantidadeHamburguer: number = form.value['hamburguer']
+      const quantidadeSuco: number = form.value['suco']
+      const quantidadeRefrigerante: number = form.value['refrigerante']
+
+      const items: { [key: string]: number } = {
+        "pizza": quantidadePizza,
+        "hamburguer": quantidadeHamburguer,
+        "suco": quantidadeSuco,
+        "refrigerante": quantidadeRefrigerante
+      }
+
+      let pedidoItens: string = ''
+
+      for (const item in items) {
+        if(items[item] > 0) {
+          pedidoItens += ` ${item}: ${items[item]} `
+        }
+      }
+
+      if(pedidoItens != '') {
+        this.service.createPedido(idCliente, pedidoItens).subscribe(() => {
+          alert('Pedido realizado com SUCESSO!')
+          location.reload()
+        })
+      } else {
+        alert('Escolha um item!')
+      }
+
     } else {
       alert('Selecione os valores')
     }

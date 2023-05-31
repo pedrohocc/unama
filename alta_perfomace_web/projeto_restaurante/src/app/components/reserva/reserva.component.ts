@@ -34,7 +34,7 @@ export class ReservaComponent {
       const inputIdCliente: number =  form.value['cliente']
       const inputDataUser: string =  form.value['data']
       const dataUser: Date = new Date(inputDataUser)
-
+      
       const dataValidada = this.validarData(dataHoje, dataUser)
       const horaValidada = this.validarHora(dataHoje, dataUser)
       const isDiaFuncionamento = this.validarDiaSemana(dataUser)

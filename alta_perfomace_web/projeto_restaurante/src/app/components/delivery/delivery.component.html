@@ -2,26 +2,26 @@
     <div id="formulario" class="mt-5 flex-column d-flex justify-content-center align-items-center">
       <h1 class="text-center text-white m-2">Pedido</h1>
       <form #meuForm="ngForm" (ngSubmit)="onSubmit(meuForm)" class="d-flex flex-column justify-content-center align-items-center" action="">
-        <div class="d-flex align-items-center w-100 flex-wrap justify-content-center">
-          <div class="selects">
-            <label class="text-white me-3" for="cliente">Cliente:</label>
-            <select ngModel #cliente="ngModel" style="width: 100px;" name="cliente" required>
+        <div class="d-flex align-items-center w-100 flex-wrap justify-content-center flex-column">
+          <div class="mt-3 d-flex flex-column justify-content-center align-items-center">
+            <label class="text-white mt-3 mb-2 text-center" for="cliente">Cliente:</label>
+            <select ngModel #cliente="ngModel" style="width: 189.33px;" name="cliente" required>
               <option value="">Selecione</option>
               <option *ngFor="let item of listaCliente" [value]="item['idcliente']" >{{item['idcliente']}}:
                 {{item['nome']}}
               </option>
             </select>
           </div>
-          <div class="selects">
-            <label class="text-white me-3" for="item">Item:</label>
-            <select ngModel #item="ngModel" style="width: 100px;" name="item" required>
-              <option value="">Selecione</option>
-              <option value="Hamburguer">Hamburguer</option>
-              <option value="Pizza">Pizza</option>
-              <option value="Suco">Suco</option>
-              <option value="Refrigerante">Refri</option>
-            </select>
-          </div>
+          <div class="d-flex justify-content-center align-content-center flex-column mt-3 mb-3">
+            <label class="text-white text-center mt-3 mb-2" for="pizza">Pizza</label>
+            <input placeholder="Quantidade" ngModel #pizza="ngModel" type="number" name="pizza" id="pizza" min="0" value="0">
+            <label class="text-white text-center mt-3 mb-2" for="hamburguer">Hamburguer</label>
+            <input placeholder="Quantidade" ngModel #hamburguer="ngModel" type="number" name="hamburguer" id="hamburguer" min="0" value="0">
+            <label class="text-white text-center mt-3 mb-2" for="refrigerante">Refrigerante</label>
+            <input placeholder="Quantidade" ngModel #refrigerante="ngModel" type="number" name="refrigerante" id="refrigerante" min="0" value="0">
+            <label class="text-white text-center mt-3 mb-2" for="suco">Suco</label>
+            <input placeholder="Quantidade" ngModel #suco="ngModel" type="number" name="suco" id="suco" min="0" value="0" >
+          </div>  
         </div>
         <div>
           <button name="pedir" class="m-3 d-flex justify-content-center align-items-center"><i class="fa-sharp fa-solid fa-check fs-3"></i><span class="ms-2">Pedir</span></button>
