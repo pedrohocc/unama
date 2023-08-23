@@ -1,4 +1,7 @@
 class ConnectionAPI {
-  final String url = 'dasdasd';
-  final String path = 'fa';
+  final String _urlBase = 'http://10.0.2.2:49384';
+
+  String buildUrl(String path) {
+    return '$_urlBase/$path';
+  }
 }

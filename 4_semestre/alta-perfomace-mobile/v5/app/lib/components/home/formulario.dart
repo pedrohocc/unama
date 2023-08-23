@@ -1,5 +1,4 @@
-import 'dart:ffi';
-
+import 'package:app/api/api_actions.dart';
 import 'package:flutter/material.dart';
 
 class Formulario extends StatefulWidget {
@@ -13,6 +12,24 @@ class _FormularioState extends State<Formulario> {
   TextEditingController nota1Controller = TextEditingController();
   TextEditingController nota2Controller = TextEditingController();
   final _keyForm = GlobalKey<FormState>();
+  String resultado = '';
+  String status = '';
+
+  void mudarResultadoEStatus(value) {
+    setState(() {
+      resultado = value;
+    });
+
+    if (double.parse(resultado) >= 7) {
+      setState(() {
+        status = 'Aprovado!';
+      });
+    } else {
+      setState(() {
+        status = 'Estude mais!';
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -30,6 +47,11 @@ class _FormularioState extends State<Formulario> {
                     if (validar(value)) {
                       return 'Insira uma nota valida';
                     } else {
+                      try {
+                        double.parse(value!);
+                      } catch (e) {
+                        return 'Insira uma nota valida';
+                      }
                       return null;
                     }
                   },
@@ -48,11 +70,14 @@ class _FormularioState extends State<Formulario> {
                 height: 80,
                 child: TextFormField(
                   validator: (value) {
-                    if (validar(value) ||
-                        double.parse(value!) < 0 ||
-                        double.parse(value) > 10) {
+                    if (validar(value)) {
                       return 'Insira uma nota valida';
                     } else {
+                      try {
+                        double.parse(value!);
+                      } catch (e) {
+                        return 'Insira uma nota valida';
+                      }
                       return null;
                     }
                   },
@@ -71,9 +96,23 @@ class _FormularioState extends State<Formulario> {
             height: 70,
             child: ElevatedButton(
               onPressed: () {
-                _keyForm.currentState!.validate();
+                if (_keyForm.currentState!.validate()) {
+                  APIActions()
+                      .getResultado(nota1Controller.text, nota2Controller.text)
+                      .then((value) => mudarResultadoEStatus(value));
+                }
               },
               child: Text('Calcular'),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(top: 20.0),
+            child: Text(
+              resultado == ''
+                  ? 'Esperando notas...'
+                  : 'Média: $resultado\nStatus: $status',
+              style: TextStyle(fontSize: 20),
+              textAlign: TextAlign.center,
             ),
           )
         ],
@@ -84,9 +123,6 @@ class _FormularioState extends State<Formulario> {
 
 bool validar(String? value) {
   if (value != null && value.isEmpty) {
-    if (double.parse(value) < 0 || double.parse(value) > 10) {
-      return false;
-    }
     return true;
   } else {
     return false;
