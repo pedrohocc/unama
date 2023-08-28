@@ -6,14 +6,18 @@ dataUser.month
 def verificarData(dataUser):
     dataAtual = datetime.datetime.now()
     idade = dataAtual.year - dataUser.year
+    mesAtual = mesAtual
+    mesUsuario = dataUser.month
+    diaAtual = dataAtual.day
+    diaUsuario = dataUser.day
     
-    if dataUser.month > dataAtual.month:
+    if mesUsuario > mesAtual:
         return idade - 1
     else:
-        if dataAtual.month > dataUser.month:
+        if mesAtual > mesUsuario:
             return idade 
-        elif dataAtual.month == dataUser.month and dataAtual.day >= dataUser.day:
-            if dataAtual.day == dataUser.day:
+        elif mesAtual == mesUsuario and  diaAtual >= diaUsuario:
+            if diaAtual == diaUsuario:
                 return f"Você esta completando {idade} anos. Parabéns"
             else:
                 return idade

@@ -102,7 +102,7 @@ class _FormularioState extends State<Formulario> {
                       .then((value) => mudarResultadoEStatus(value));
                 }
               },
-              child: Text('Calcular'),
+              child: const Text('Calcular'),
             ),
           ),
           Padding(
@@ -111,7 +111,7 @@ class _FormularioState extends State<Formulario> {
               resultado == ''
                   ? 'Esperando notas...'
                   : 'Média: $resultado\nStatus: $status',
-              style: TextStyle(fontSize: 20),
+              style: const TextStyle(fontSize: 20),
               textAlign: TextAlign.center,
             ),
           )

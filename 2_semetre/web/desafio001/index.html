@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tela de login</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.7.0.slim.min.js" integrity="sha256-tG5mcZUtJsZvyKAxYLVXrmjKBVLd6VpVccqz/r4ypFE=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <form action="">
+        <table>
+            <tr>
+                <td>Login:</td>
+                <td><input type="" placeholder="Ex: 04129205" disabled></td>
+            </tr>
+            <tr>
+                <td>Senha:</td>
+                <td><input type="password" placeholder="Ex: 123" disabled></td>
+            </tr>
+            <tr>
+                <td><input type="submit" value="Entrar"></td>
+            </tr>
+        </table>
+    </form>
+    <script>
+        $(document).ready(() => {
+            setTimeout(() => {
+                $('input').removeAttr('disabled')
+            }, 1000)
+            
+        })
+
+    </script>
+</body>
+</html>

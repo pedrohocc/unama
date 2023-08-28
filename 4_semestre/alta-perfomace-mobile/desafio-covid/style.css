@@ -1,0 +1,29 @@
+
+
+body, html {
+    height: 98vh;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: gray!important;
+}
+
+.tamanho {
+    max-height: 300px;
+    min-width: 300px;
+    margin: 2em;
+}
+
+.fundo {
+    text-align: center;
+    background-color: rgb(32, 178, 171);
+    color: white;
+    min-height: 500px;
+    min-width: 500px;
+    padding: 1em;
+    border-radius: 20px;
+}

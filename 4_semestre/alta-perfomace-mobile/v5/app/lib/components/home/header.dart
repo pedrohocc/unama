@@ -7,9 +7,9 @@ class Header extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 80,
-      padding: EdgeInsets.all(10),
-      decoration: BoxDecoration(color: Colors.purple),
-      child: Row(
+      padding: const EdgeInsets.all(10),
+      decoration: const BoxDecoration(color: Colors.purple),
+      child: const Row(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [

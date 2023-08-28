@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <form action="">
+            <div class="inputs">
+                <label for="primeiroNome">Primeiro nome:</label>
+                <input autofocus required type="text" name="primeiroNome" placeholder="Jose">
+            </div>
+            <div class="inputs">
+                <label for="segundoNome">Segundo nome:</label>
+                <input required type="text" name="segundoNome" placeholder="Silva" >
+            </div>
+            <div class="inputs">
+                <label for="senhaUsuario">Senha:</label>
+                <input required type="password" name="senhaUsuario" placeholder="123">
+            </div>
+            <div class="inputs checkbox">
+                <label for="sexo">Masculino:</label>
+                <input checked type="radio" name="sexo" value="masculino">
+                <label for="sexo">Feminino:</label>
+                <input type="radio" name="sexo" value="feminino">
+            </div>
+            <div class="inputs select">
+                <label for="universidade">Universidade:</label>
+                <select name="universidade" id="">
+                    <option value="">Selecione</option>
+                    <option value="ufpa">UFPA</option>
+                    <option value="ufra">UFRA</option>
+                    <option value="uepa">UEPA</option>
+                    <option value="unama">UNAMA</option>
+                </select>
+            </div>
+            <div class="inputs">
+                <label for="texto">Sugestão:</label>
+                <textarea name="texto" id="" cols="30" rows="10" placeholder="Ex: Melhorar opções de lanches"></textarea>
+            </div>
+            <div class="inputs">
+                <input onclick="" type="submit" value="Enviar">
+            </div>
+        </form>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>

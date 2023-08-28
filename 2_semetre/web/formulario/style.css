@@ -1,0 +1,67 @@
+* {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body, html {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body {
+    background-color: grey;
+    background-image: url('https://goadmedia.com.br/wp-content/uploads/2017/12/Gif-capa.gif');
+    background-position: left;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: white;
+}
+
+.container {
+    background-color: rgba(0, 94, 91, 0.7);
+    height: 40em;
+    width: 25em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.396);
+}
+
+.inputs {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1.5em;
+}
+
+.checkbox {
+    flex-direction: row;
+}
+
+.checkbox input {
+    margin-right: 10px;
+}
+
+.select {
+    flex-direction: row;
+}
+
+.select label {
+    margin-right: 10px;
+}
+
+input[type=submit] {
+    height: 30px;
+    width: 100px;
+    border: 0px;
+    border-radius: 10px;
+}
+
+input[type=submit]:hover {
+    background-color: green;
+    color: white;
+    cursor: pointer;
+}

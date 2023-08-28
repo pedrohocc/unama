@@ -16,7 +16,8 @@ export default function App() {
 
   const calcularMedia = () => {
     let status = ''
-    fetch(`http://localhost:4000/media/${nota1}/${nota2}`)
+    const url = new API(nota1, nota2)
+    fetch(url.getUrl())
       .then((res) => {
         return res.json();
       })
