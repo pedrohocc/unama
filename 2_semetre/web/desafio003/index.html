@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Formulário de cadastro</h1>
+    <form>
+        <fieldset class="fieldCorpo">
+            <legend>Dados pessoas</legend>
+            <div>
+                <label for="nome">Nome:</label>
+                <input name="nome" type="text">
+            </div>
+            <div>
+                <label for="email">E-mail:</label>
+                <input name="email" type="email">
+            </div>
+            <div>
+                <label for="cidade">Cidade:</label>
+                <input name="cidade" type="text">
+            </div>
+            <div>
+                <label for="estado">Estado:</label>
+                <select name="estado" id="">
+                    <option value="">Escolha...</option>
+                </select>
+            </div>
+        </fieldset>
+        <fieldset class="fieldCorpo">
+            <legend>Dados profissionais</legend>
+            <div>
+                <label for="">Cargo pretendido:</label>
+                <div class="radio">
+                    <div>
+                        <input type="radio" name="analistaSistema">
+                        <label for="analistaSistema">Analista de sistemas</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="analistaBanco">
+                        <label for="analistaBanco">Analista de banco de dados</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="analistaSuporte">
+                        <label for="analistaSuporte">Analista de suporte</label>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <label for="">Tecnologia de interesse:</label>
+                <div class="radio">
+                    <div>
+                        <input type="radio" name="java">
+                        <label for="java">Java</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="html&css">
+                        <label for="html&css">HTML, CSS</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="js">
+                        <label for="js">Javascript</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="sql">
+                        <label for="sql">SQL</label>
+                    </div>
+                </div>
+            </div>
+            <div id="caixaTexto">
+                <label for="">Mini curriculo</label>
+                <textarea name="" id="" cols="30" rows="10"></textarea>
+            </div>
+        </fieldset>
+        <fieldset>
+            <legend>Ações:</legend>
+            <input type="button" value="Enviar">
+            <input type="button" value="Limpar">
+        </fieldset>
+    </form>
+</body>
+</html>

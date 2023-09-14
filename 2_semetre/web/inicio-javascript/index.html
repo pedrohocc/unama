@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciando JS</title>
+</head>
+<script>
+    function mudarCorFundo(cor) {
+        document.querySelector('body').style.backgroundColor = cor
+    }
+
+</script>
+<style>
+    html,body {
+        height: 98vh;
+    }
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    input[type='button'] {
+        height: 70px;
+        width: 200px;
+        font-size: 20px;
+    }
+</style>
+<body>
+    <div>
+        <input type="button" onclick="mudarCorFundo('red')" value="Vermelho">
+        <input type="button" onclick="mudarCorFundo('green')" value="Verde">
+    </div>
+</body>
+</html>

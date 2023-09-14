@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor de Moedas</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-secondary d-flex justify-content-center align-items-center flex-column">
+    <header class="mt-5">
+        <h1 class="text-white text-center">Conversor</h1>
+    </header>
+    <main class="container h-100">
+        <div class="formulario d-flex flex-column justify-content-center rounded-5 shadow">
+            <h2 class="text-white m-3 text-center">Informe um valor:</h2>
+            <div class="inputs_moedas d-flex justify-content-center align-items-center flex-column">
+                <div class="form-floating mb-3">
+                    <input type="number" class="form-control" id="input_real" placeholder="Ex: R$ 100">
+                    <label for="input_real">Real:</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="number" class="form-control" id="input_dolar" placeholder="Ex: $ 100">
+                    <label for="input_dolar">Dolar:</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="number" class="form-control" id="input_euro" placeholder="Ex: € 100">
+                    <label for="input_euro">Euro:</label>
+                </div>
+                <div class="buttons d-flex">
+                    <button type="button" class="btn btn-warning me-3" onclick="limparInputs(input_real)">Limpar</button>
+                    <button type="button" id="bnt_converter" class="btn btn-success" onclick="converterValores()">Converter</button>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    <script src="main.js"></script>
+</body>
+</html>
