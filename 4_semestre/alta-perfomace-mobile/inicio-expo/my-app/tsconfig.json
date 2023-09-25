@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "target": "ES2015",
+    "module": "commonjs",
+    "jsx": "react-native",
+    "outDir": "./dist",
+    "strict": true,
+    "noImplicitAny": true
+  },
+  "extends": "expo/tsconfig.base"
+}
