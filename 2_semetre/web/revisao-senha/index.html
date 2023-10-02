@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+
+        html, body {
+            height: 100%;
+        }
+
+        body {
+            background-image: linear-gradient(to top, rgb(213, 213, 213), rgb(159, 210, 255));
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        input {
+            width: 100%;
+            height: 3em;
+            border: 0px solid black;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
+
+        #container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 1em;
+            border-radius: 10px;
+        }
+
+        #teste {
+            display: flex;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="teste">
+            <input style="width: 50%; margin-right: 10px;" type="text" name="inputs" id="inputNome" placeholder=" Nome">
+            <input style="width: 50%" type="text" name="inputs" id="inputSobrenome" placeholder=" Sobrenome">
+        </div>
+        <input type="email" placeholder=" E-mail ou número do celular">
+        <input type="email" placeholder=" Insira novamente e-mail ou número ou o celular">
+        <input type="password" placeholder=" Nova senha">
+    </div>
+</body>
+</html>

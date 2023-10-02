@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/style.css">
+</head>
+<body class="bg-info-subtle d-flex justify-content-center align-items-center">
+    <div class="calculadora">
+        <input type="text" style="width: 200px; height: 50px; text-align: right;">
+        <div class="d-flex">
+            <button type="button" style="background-color: red;" onclick="apagar()">C</button>
+            <button type="button" class="bntOpc" id="bntRaiz">√</button>
+            <button type="button" class="bntOpc" id="bntElevadoQuadrado">^²</button>
+            <button type="button" class="bntOpc" id="bntElevado">^</button>
+        </div>
+        <div class="d-flex">
+            <button type="button" class="bntOpc" id="bntFatorial">!</button>
+            <button type="button" class="bntOpc" id="bntLogDois">Log₂</button>
+            <button type="button" class="bntOpc" id="bntLogDez">Log₁₀</button>
+            <button type="button" class="bntOpc" id="bntLogNatural">Logₑ</button>
+        </div>
+        <div class="d-flex">
+            <button type="button" class="bntNumero" value="7">7</button>
+            <button type="button" class="bntNumero" value="8">8</button>
+            <button type="button" class="bntNumero" value="9">9</button>
+            <button type="button" class="bntOpc" id="bntSoma">+</button>
+        </div>
+        <div class="d-flex">
+            <button type="button" class="bntNumero" value="4">4</button>
+            <button type="button" class="bntNumero" value="5">5</button>
+            <button type="button" class="bntNumero" value="6">6</button>
+            <button type="button" class="bntOpc" id="bntSubtracao">-</button>
+        </div>
+        <div class="d-flex">
+            <button type="button" class="bntNumero" value="1">1</button>
+            <button type="button" class="bntNumero" value="2">2</button>
+            <button type="button" class="bntNumero" value="3">3</button>
+            <button type="button" class="bntOpc" id="bntMultiplicacao">*</button>
+        </div>
+        <div class="d-flex">
+            <button type="button" class="bntNumero" value="0">0</button>
+            <button type="button" id="bntPoint" onclick="adicionarPonto()">.</button>
+            <button type="button" id="bntMultiplicacao" onclick="fazerConta()">=</button>
+            <button type="button" class="bntOpc" id="bntDivisao">/</button>
+        </div>
+        <div class="d-flex flex-column align-items-center justify-content-center text-white" style="background-color: cornflowerblue;">
+            <span>Simbolos para copiar:</span>
+            <span>√</span>
+            <span>^²</span>
+            <span>^</span>
+            <span>Log₂</span>
+            <span>Log₁₀</span>
+            <span>Log₁₀</span>
+            <span>Logₑ</span>
+        </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="assets/main.js"></script>
+</body>
+</html>
