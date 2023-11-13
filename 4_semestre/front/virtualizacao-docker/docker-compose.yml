@@ -1,0 +1,15 @@
+version: '3.8'
+services:
+  site-noticias:
+    image: httpd:alpine
+    ports:
+      - 8080:80
+    volumes:
+      - ./com-js:/usr/local/apache2/htdocs:ro
+
+  calculadora:
+    image: httpd:alpine
+    ports:
+      - 8081:80
+    volumes:
+      - ./calculadora:/usr/local/apache2/htdocs:ro
