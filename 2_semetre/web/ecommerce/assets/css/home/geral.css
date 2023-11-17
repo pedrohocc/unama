@@ -6,9 +6,19 @@
 
 h1 {
     font-family: "Handjet", sans-serif;
+    transition: 0.5s;
+}
+
+h1:hover {
+    color: blue;
 }
 
 .topo {
     background-color: rgba(255, 255, 255, 0.145);
     border-bottom: 3px solid white;
+}
+
+.card:hover {
+    background-color: rgba(255, 255, 255, 0.701);
+    transition: 0.5s;
 }

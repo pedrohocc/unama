@@ -25,6 +25,7 @@ if (logado !== 'true') {
                     </div>`
                 });
                 divProdutos.innerHTML = cards;
+                atualizarCarrinho();
                 adicionarEventos();
             })
             .catch(error => console.error('Erro:', error));
@@ -35,21 +36,27 @@ if (logado !== 'true') {
 
         btnCompra.forEach(element => {
             element.onclick = () => {
-                alterarValorCarrinho();
                 salvarLocalStorage(element.id);
+                atualizarCarrinho();
             }
         });
     }
 
-    function alterarValorCarrinho() {
+    function atualizarCarrinho() {
         const carrinho = document.querySelector('.badge');
-        const valorCarrinho = parseInt(carrinho.innerHTML);
-        carrinho.innerHTML = valorCarrinho + 1;
+        const valor = localStorage.getItem('carrinho')
+        carrinho.innerHTML = valor != null ? valor.split(',').length : 0;
     }
 
     function salvarLocalStorage(id_produto) {
         const carrinho = localStorage.getItem('carrinho');
         localStorage.setItem('carrinho', carrinho != null ? [carrinho, id_produto] : [id_produto]);
         alert('Produto adicionado ao carrinho!');
+    }
+
+    function sair() {
+        localStorage.setItem('logado', false);
+        localStorage.removeItem('carrinho');
+        window.location.href = '/index.html';
     }
 }

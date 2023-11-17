@@ -15,12 +15,17 @@
     <header>
         <div class="topo d-flex justify-content-between align-items-center p-3">
             <h1 class="text-center">Perifericos.com</h1>
-            <button type="button" class="btn btn-primary position-relative">
-                <i class="fa-solid fa-cart-shopping"></i>
-                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                    0
-                </span>
-            </button>
+            <div>
+                <button type="button" class="btn btn-primary position-relative me-3">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                        0
+                    </span>
+                </button>
+                <button type="button" class="btn btn-primary" onclick="sair()">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                </button>
+            </div>
         </div>
     </header>
 
