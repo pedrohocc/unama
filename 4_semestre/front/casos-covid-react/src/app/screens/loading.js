@@ -1,4 +1,5 @@
-import { Box, CircularProgress } from "@mui/material";
+import { Box, CircularProgress, Typography } from "@mui/material";
+import theme from "../theme/theme";
 
 export default function LoadingScreen() {
     return (

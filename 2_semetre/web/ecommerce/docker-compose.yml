@@ -1,0 +1,33 @@
+version: '3.8'
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 80:80
+    volumes:
+      - ./:/var/www/html/
+    environment:
+      - APP_ENV=dev
+
+  postgres:
+    image: "postgres"
+    environment:
+      - POSTGRES_USER=user123
+      - POSTGRES_PASSWORD=user123
+      - POSTGRES_DB=dbzin
+    ports:
+      - "5533:5432"
+    volumes:
+      - ./migration/docker-database-initial.sql:/docker-entrypoint-initdb.d/docker-database-initial.sql
+
+  pgadmin-compose:
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: "pedro@go.com"
+      PGADMIN_DEFAULT_PASSWORD: "123456"
+    ports:
+      - "54321:80"
+    depends_on:
+      - postgres
