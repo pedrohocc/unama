@@ -1,7 +1,7 @@
 <?php
 class Connection {
     public function conexao() {
-        $host = "172.23.0.2"; 
+        $host = "172.23.0.3"; 
         $port = 5432;
         $dbname = 'dbzin';
         $user = 'user123';

@@ -1,5 +1,5 @@
 import { ScrollView, StyleSheet, View, Text } from "react-native";
-import { buscarERenderizarEstado, buscarErenderizarCidades } from "../api/Api";
+import { buscarERenderizarEstado } from "../api/Api";
 import { useEffect, useState } from "react";
 import { Icon } from "react-native-paper";
 

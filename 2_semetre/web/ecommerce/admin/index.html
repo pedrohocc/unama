@@ -8,27 +8,25 @@
     <link rel="shortcut icon" href="./assets/favicon.ico" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-        <link rel="stylesheet" href="./assets/css/index/login.css">
 </head>
 
 <body>
-    <h1 class="text-center">Login</h1>
+    <h1 class="text-center">Login Admin</h1>
     <div class="container mt-3 forms p-3 rounded w-50">
-        <form method="post">
+        <form>
             <div class="row mb-3">
-                <label for="email" class="col-sm-2 col-form-label text-white">Email:</label>
+                <label for="user" class="col-sm-2 col-form-label">User:</label>
                 <div class="col-sm-10">
-                    <input type="email" class="form-control" id="email" value="joao.silva@email.com">
+                    <input type="email" class="form-control" id="user" value="admin">
                 </div>
             </div>
             <div class="row mb-3">
-                <label for="senha" class="col-sm-2 col-form-label text-white">Senha:</label>
+                <label for="senha" class="col-sm-2 col-form-label">Senha:</label>
                 <div class="col-sm-10">
-                    <input type="password" class="form-control" id="senha" value="senha111">
+                    <input type="password" class="form-control" id="senha" value="admin">
                 </div>
             </div>  
-            <p>Não tem Cadastro? <a href="dashboard/cadastro/index.html">Clique aqui</a></p>
-            <button type="button" class="btn btn-primary" onclick="logar()"><i class="fa-solid fa-right-to-bracket"></i> Entrar</button>
+            <button type="button" onclick="logar()" class="btn btn-primary"><i class="fa-solid fa-right-to-bracket"></i> Entrar</button>
         </form>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"

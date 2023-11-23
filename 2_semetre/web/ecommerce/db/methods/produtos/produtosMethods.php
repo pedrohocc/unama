@@ -14,7 +14,7 @@ class ProdutosMethods
             $stmt = $pdo->query($sql);
 
             while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                $novoProd = new Produtos($row['id_produto'], $row['nome'], $row['descricao'], $row['preco'], $row['estoque']);
+                $novoProd = new Produtos($row['id_produto'], $row['nome'], $row['descricao'], $row['preco'], $row['estoque'], $row['imagem']);
                 $itens[] = $novoProd;
             }
         } catch (PDOException $e) {

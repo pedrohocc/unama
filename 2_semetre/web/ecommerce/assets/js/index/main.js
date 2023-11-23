@@ -18,7 +18,7 @@ function logar() {
             .then(text => {
                 if(text == 'Usuário logado com sucesso') {
                     localStorage.setItem('logado', true);
-                    window.location.href = '/home.html';
+                    window.location.href = '/dashboard/home.html';
                 } else {
                     alert(text);
                 }

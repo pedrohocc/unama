@@ -15,7 +15,7 @@ class ProdutosMethods
 
             while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                 $novoProd = new Produtos($row['id_produto'], $row['nome'], $row['descricao'], $row['preco'], $row['ativo']);
-                $itens[] = $novoProd->toTable();
+                $itens[] = $novoProd;
             }
         } catch (PDOException $e) {
             throw new Exception("Error Processing Request" . $e->getMessage());
