@@ -1,11 +1,11 @@
 <?php
-include_once __DIR__ . '/../db/methods/login/loginMethods.php';
+include_once __DIR__ . '/../db/methods/login-admin/loginAdminMethods.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $email = $_POST['email'];
+    $user = $_POST['user'];
     $senha = $_POST['senha'];
-    $lm = new LoginMethods();
-    $usuario = $lm->login($email, $senha);
+    $loginAdmin = new LoginAdminMethods();
+    $usuario = $loginAdmin->login($user, $senha);
     echo $usuario;
     }
 ?>

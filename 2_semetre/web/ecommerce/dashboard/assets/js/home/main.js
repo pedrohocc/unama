@@ -23,38 +23,37 @@ if (logado !== 'true') {
                     <div class="card-body">
                       <h5 class="card-title">${produto.nome}</h5>
                       <p class="card-text text-black">${produto.descricao}</p>
-                      <button id="${produto.id_produto}" class="bnt-compra btn btn-primary"><i class="fa-solid fa-cart-plus"></i> R$ ${produto.preco}</button>
+                      <button id="${produto.id_produto}" class="bnt-compra btn btn-primary" onclick="salvarLocalStorage({
+                        id_produto: ${produto.id_produto},
+                        nome: '${produto.nome}',
+                        descricao: '${produto.descricao}',
+                        preco: ${produto.preco},
+                        imagem: '${produto.imagem}'
+                      });"><i class="fa-solid fa-cart-plus"></i> R$ ${produto.preco}</button>
                     </div> 
                     </div>`
                 });
                 divProdutos.innerHTML = cards;
                 atualizarCarrinho();
-                adicionarEventos();
             })
             .catch(error => console.error('Erro:', error));
     }
 
-    function adicionarEventos() {
-        const btnCompra = document.querySelectorAll('.bnt-compra');
-
-        btnCompra.forEach(element => {
-            element.onclick = () => {
-                salvarLocalStorage(element.id);
-                atualizarCarrinho();
-            }
-        });
-    }
-
     function atualizarCarrinho() {
         const carrinho = document.querySelector('.badge');
-        const valor = localStorage.getItem('carrinho')
-        carrinho.innerHTML = valor != null ? valor.split(',').length : 0;
+        const valor = JSON.parse(localStorage.getItem('carrinho'))
+        carrinho.textContent = valor.length;
     }
 
     function salvarLocalStorage(id_produto) {
-        const carrinho = localStorage.getItem('carrinho');
-        localStorage.setItem('carrinho', carrinho != null ? [carrinho, id_produto] : [id_produto]);
+        let carrinho = []
+        if(localStorage.getItem('carrinho') != null) {
+            carrinho = JSON.parse(localStorage.getItem('carrinho'));
+        }
+        carrinho.push(id_produto);
+        localStorage.setItem('carrinho', JSON.stringify(carrinho));
         alert('Produto adicionado ao carrinho!');
+        atualizarCarrinho();
     }
 
     function sair() {
