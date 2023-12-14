@@ -14,7 +14,7 @@ class LoginMethods {
         $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
 
        if($usuario && $senhaCripto == $usuario['senha']) {
-            return "Usuário logado com sucesso";
+            return $usuario['id_cliente'];
         } else {
             return "Usuário ou senha incorreto";
         }

@@ -15,7 +15,7 @@ const CardNews = ({titulo, conteudo}) => (
 const styles = StyleSheet.create({
   container: {
     padding: 20,
-    marginTop: 50,
+    marginTop: 10,
   },
 });
 

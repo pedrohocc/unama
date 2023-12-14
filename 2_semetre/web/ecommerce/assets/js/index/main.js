@@ -16,11 +16,12 @@ function logar() {
         })
             .then(response => response.text())
             .then(text => {
-                if(text == 'Usuário logado com sucesso') {
-                    localStorage.setItem('logado', true);
-                    window.location.href = '/dashboard/home.html';
-                } else {
+                if(text == 'Usuário ou senha incorreto') {
                     alert(text);
+                } else {
+                    localStorage.setItem('logado', true);
+                    localStorage.setItem('usuario', text);
+                    window.location.href = '/dashboard/home.html';
                 }
             })
             .catch(error => console.error('Erro:', error));

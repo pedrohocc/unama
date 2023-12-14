@@ -1,0 +1,16 @@
+img {
+    height: 100px;
+    object-fit: contain;
+}
+
+.produto {
+    color: black;
+    background-color: white;
+    width: 150px;
+    min-height: 350px;
+    height: 350px;
+}
+
+.destaque {
+    color: aqua;
+}

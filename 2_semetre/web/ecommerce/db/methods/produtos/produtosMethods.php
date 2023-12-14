@@ -23,5 +23,43 @@ class ProdutosMethods
 
         return $itens;
     }
+
+    public function addProduct($nome, $descricao, $preco, $estoque, $imagem): ?bool {
+        $pdo = new Connection();
+        $pdo = $pdo->connect();
+
+        try {
+            $sql = 'INSERT INTO produtos (nome, descricao, preco, estoque, imagem) VALUES (:nome, :descricao, :preco, :estoque, :imagem)';
+            $stmt = $pdo->prepare($sql);
+            $stmt->bindParam(':nome', $nome);
+            $stmt->bindParam(':descricao', $descricao);
+            $stmt->bindParam(':preco', $preco);
+            $stmt->bindParam(':estoque', $estoque);
+            $stmt->bindParam(':imagem', $imagem);
+            $stmt->execute();
+            return true;
+        } catch (PDOException $e) {
+            throw new PDOException($e->getMessage());
+        }
+    }
+
+    public function updateEstoque($id_produto, $estoque): bool
+    {
+        $pdo = new Connection();
+        $pdo = $pdo->connect();
+
+        $sql = "UPDATE produtos SET estoque = :estoque WHERE id_produto = :id_produto";
+
+        $stmt = $pdo->prepare($sql);
+        $stmt->bindParam(':id_produto', $id_produto);
+        $stmt->bindParam(':estoque', $estoque);
+
+        try {
+            $stmt->execute();
+            return true;
+        } catch (Exception $e) {
+            throw new Exception($e->getMessage());
+        }
+    }
 }
 ?>

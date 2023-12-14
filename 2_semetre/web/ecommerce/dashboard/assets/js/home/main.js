@@ -28,7 +28,8 @@ if (logado !== 'true') {
                         nome: '${produto.nome}',
                         descricao: '${produto.descricao}',
                         preco: ${produto.preco},
-                        imagem: '${produto.imagem}'
+                        imagem: '${produto.imagem}',
+                        qtd: 1
                       });"><i class="fa-solid fa-cart-plus"></i> R$ ${produto.preco}</button>
                     </div> 
                     </div>`
@@ -45,20 +46,33 @@ if (logado !== 'true') {
         carrinho.textContent = valor.length;
     }
 
-    function salvarLocalStorage(id_produto) {
+    function salvarLocalStorage(produto) {
         let carrinho = []
-        if(localStorage.getItem('carrinho') != null) {
+        carrinho.find
+        if (localStorage.getItem('carrinho') != null) {
             carrinho = JSON.parse(localStorage.getItem('carrinho'));
+            if (carrinho.find(item => item.id_produto === produto.id_produto) !== undefined) {
+                carrinho.find(item => item.id_produto === produto.id_produto).qtd++;
+                localStorage.setItem('carrinho', JSON.stringify(carrinho));
+                alert('Produto adicionado ao carrinho!');
+            } else {
+                carrinho.push(produto);
+                localStorage.setItem('carrinho', JSON.stringify(carrinho));
+                alert('Produto adicionado ao carrinho!');
+            }
+        } else {
+            carrinho.push(produto);
+            localStorage.setItem('carrinho', JSON.stringify(carrinho));
+            alert('Produto adicionado ao carrinho!');
         }
-        carrinho.push(id_produto);
-        localStorage.setItem('carrinho', JSON.stringify(carrinho));
-        alert('Produto adicionado ao carrinho!');
         atualizarCarrinho();
     }
 
     function sair() {
         localStorage.setItem('logado', false);
         localStorage.removeItem('carrinho');
+        localStorage.removeItem('total');
+        localStorage.removeItem('usuario');
         window.location.href = '/index.html';
     }
 }

@@ -1,37 +1,45 @@
 import { StatusBar } from 'expo-status-bar';
 import { useState, useEffect } from 'react';
-import { FlatList, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { FlatList,  StyleSheet,  View } from 'react-native';
 import CardNews from './components/cardNews';
-import { ActivityIndicator } from 'react-native-paper';
+import { Searchbar } from 'react-native-paper';
 
 export default function App() {
   const [news, setNews] = useState([])
-  const [loading, setLoading] = useState(true)
-
+  const [newsID, setNewsID] = useState('')
   function getNews() {
-    setLoading(true);
-    fetch('https://codequestpoobackend--willyscampos.repl.co/news')
+    let url = ''
+    if (newsID == '') {
+      url = `https://codequestpoobackend.willyscampos.repl.co/news`
+    } else {
+      url = `https://codequestpoobackend.willyscampos.repl.co/news/${newsID}`
+    }
+
+    fetch(url, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
       .then(response => response.json())
       .then(data => {
-        setNews(data);
-        setLoading(false);
+        if (data != null) {
+          setNews(data);
+        }
       }).catch(err => {
-        console.error(err);
+        console.log(err);
+        setNews({ title: 'Ops!', content: 'Não Achamos uma noticia com esse ID' });
       });
   }
-
   useEffect(() => {
     getNews();
-  }, [])
-
-  const renderItem = ({ item }) => ( <CardNews key={item.id} titulo={item.title} conteudo={item.content} />)
-
+  }, [newsID])
+  const renderItem = ({ item }) => (<CardNews titulo={item.title} conteudo={item.content} />)
   return (
     <View style={styles.container}>
-      <FlatList data={news} renderItem={renderItem} key={item => item.id.toString()} onEndReached={getNews} onEndReachedThreshold={0.5}>
-      </FlatList>
-      {loading ? <ActivityIndicator size="large" color="#0000ff" /> :<></>}
-      <StatusBar style="dark" />
+      <Searchbar placeholder='Digite um ID' onChangeText={id => setNewsID(id)} value={newsID} style={styles.searchBar}></Searchbar>
+      {newsID == '' ? <FlatList data={news} renderItem={renderItem} keyExtractor={item => item.id.toString()} onEndReached={getNews} onEndReachedThreshold={1}>
+      </FlatList> : <CardNews titulo={news.title} conteudo={news.content} />}
     </View>
   );
 }
@@ -39,8 +47,11 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    padding: 20,
     backgroundColor: '#fff',
     alignItems: 'center',
-    justifyContent: 'center',
   },
+  searchBar: {
+    marginTop: 10,
+  }
 });
