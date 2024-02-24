@@ -1,0 +1,20 @@
+{% extends "estoque/base.html" %}
+{% load static %}
+{% block content %}
+<div class="container d-flex flex-column justify-content-center align-items-center mt-3">
+        <h1 class="text-center text-white">Produto</h1>
+        <div class="bg-success bg-opacity-75 text-white w-50 rounded p-3 m-3">
+            <h2 class="text-center">{{ produto.nome }}</h2>
+            {% if produto.imagem == '' or produto.imagem == null %}
+            <img class="card-img-top" src="{% static 'assets/images/not_found.jpg' %}" alt="{{ produto.nome }}">
+            {% else %}
+            <img class="card-img-top" src="{{ produto.imagem.url }}" alt="{{ produto.nome }}">
+            {% endif %}
+            <p><strong>Descrição:</strong> {{ produto.descricao }}</p>
+            <p><strong>Categoria:</strong> {{ produto.categoria }}</p>
+            <p><strong>Fornecedor:</strong> {{ produto.fornecedor }}</p>
+            <p><strong>Preço:</strong> R$ {{ produto.preco }}</p>
+            <a href="{% url 'admin:estoque_produto_change' produto.id %}" class="btn btn-link text-white mt-3 ">Acessar Item</a>
+        </div>
+    </div>
+{% endblock %}

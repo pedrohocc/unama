@@ -1,0 +1,23 @@
+{% extends "estoque/base.html" %} 
+{% load static %}
+{% block content %}
+<div class="container mt-3">
+    <h1 class="text-center text-white">Estoque</h1>
+    <div class="d-flex flex-wrap justify-content-center align-items-center">
+        {% if estoque %}
+        {% for card, qrcode, barcode in estoque %}
+        <div class="card bg-success bg-opacity-75 text-white m-3" style="width: 18rem;">
+            {% if card.produto.imagem == '' or card.produto.imagem == null %}
+            <img src="{% static 'assets/images/not_found.jpg' %}" class="card-img-top" alt="...">
+            {% else %}
+            <img src="{{ card.produto.imagem.url }}" class="card-img-top" style="width: 100%; height: 18rem; object-fit: cover;" alt="...">
+            {% endif %}
+            {% include 'estoque/partials/_card.html' %}
+        </div>
+        {% endfor %}
+        {% else %}
+        <h3>Não há produtos cadastrados</h3>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

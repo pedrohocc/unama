@@ -1,0 +1,12 @@
+{% load static %}
+<div class="card-body">
+    <h5 class="card-title">{{ card.produto.nome }}</h5>
+    <p class="card-text"><strong>Data:</strong> {{ card.data }}</p>
+    <p class="card-text"><strong>Quantidade:</strong> {{ card.quantidade }}</p>
+    <p class="card-text"><strong>Deposito:</strong> {{ card.deposito }}</p>
+    <p class="card-text"><strong>Setor:</strong> {{ card.setor }}</p>
+    <a href="{% url 'produto' card.produto.id %}"><img class="card-img" src="{{ qrcode }}" alt=""></a>
+    <hr>
+    <a href="{% url 'produto' card.produto.id %}"><img class="card-img" src="{{ barcode }}" alt=""></a>
+    <a href="{% url 'admin:estoque_estoque_change' card.id %}" class="btn btn-link text-white mt-3 ">Acessar Item</a>
+  </div>
