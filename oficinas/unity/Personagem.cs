@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class Personagem : MonoBehaviour
 {
-    private GameObject personagem;
     private Rigidbody2D rb;
     private Animator anim;
     private Controller controller;
@@ -16,9 +15,8 @@ public class Personagem : MonoBehaviour
 
     void Start()
     {
-        personagem = GameObject.Find("Personagem");
-        rb = personagem.GetComponent<Rigidbody2D>();
-        anim = personagem.GetComponent<Animator>();
+        rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
         controller = GameObject.Find("Controller").GetComponent<Controller>();
     }
 
@@ -30,17 +28,17 @@ public class Personagem : MonoBehaviour
 
     void MovimentarPersonagem() {
         float movimento = Input.GetAxis("Horizontal");
-
-        rb.velocity = new Vector2(movimento * velocidade, rb.velocity.y);
+        Vector3 movimentoVetorial = new Vector3(movimento, 0, 0);
+        transform.position += movimentoVetorial * velocidade * Time.deltaTime;
 
         if(movimento > 0)
         {
-            personagem.transform.eulerAngles = new Vector3(0, 0, 0);
+            transform.eulerAngles = new Vector3(0, 0, 0);
             anim.SetBool("taAndando", true);
         }
         else if(movimento < 0)
         {
-            personagem.transform.eulerAngles = new Vector3(0, 180, 0);
+            transform.eulerAngles = new Vector3(0, 180, 0);
             anim.SetBool("taAndando", true);
         }
         else
@@ -71,7 +69,7 @@ public class Personagem : MonoBehaviour
 
         if(col.gameObject.tag == "Inimigo" || col.gameObject.tag == "Espinho")
         {
-            Destroy(personagem);
+            Destroy(gameObject);
             controller.GameOver();
         }
     }
