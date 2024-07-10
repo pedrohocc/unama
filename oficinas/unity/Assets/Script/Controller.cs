@@ -19,6 +19,7 @@ public class Controller : MonoBehaviour
     {
         canvas.gameObject.SetActive(true);
         Time.timeScale = 0;
+
     }
 
     public void Win()
@@ -41,6 +42,6 @@ public class Controller : MonoBehaviour
         {
             return;
         }
-        cenario.transform.position = new Vector3(cenario.transform.position.x - 0.01f, cenario.transform.position.y, cenario.transform.position.z);
+        cenario.transform.position = new Vector3(cenario.transform.position.x - 0.005f, cenario.transform.position.y, cenario.transform.position.z);
     }
 }
